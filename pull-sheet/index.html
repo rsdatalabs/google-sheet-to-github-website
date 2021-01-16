@@ -18,7 +18,8 @@ title: Update Spreadsheet
     //Cookies.expire('token');
 
     // URL: https://[user/org].github.io/[repo]/pull-sheet/?key=your_key&worksheet=worksheet_name&token=your_personal_access_token&org=your_org&repo=your_repo&branch=your_branch
-    URL: https://rsdatalabs.github.io/google-sheet-to-github-website/pull-sheet/?key=1yCqPtGEOZaY_RW4sV3vjUIx7wh_huuvTnbNh2zf0N3s&worksheet=CSV-To-Google-Sheet&token=c8bb0e31675012fdf8e2ab826480a4ec4b62cccc
+    URL: https://rsdatalabs.github.io/google-sheet-to-github-website/pull-sheet/?key=1yCqPtGEOZaY_RW4sV3vjUIx7wh_huuvTnbNh2zf0N3s&worksheet=CSV-To-Google-Sheet&token=c8bb0e31675012fdf8e2ab826480a4ec4b62cccc&org=rsdatalabs&repo=google-sheet-to-github-website&branch=master
+
     // Incoming Variables append
     var $key = getUrlVar('key');
     var $resource = getUrlVar('worksheet');
@@ -97,13 +98,13 @@ title: Update Spreadsheet
                 $path = treeValue['path'];
                 $sha = treeValue['sha'];
 
-                //console.log($path + ' == ' + $writepath);
+                console.log($path + ' == ' + $writepath);
 
                 if($path==$writepath)
                   {
                   repo.writemanual($branch,$writepath, $yaml_dump, 'Save', $sha, function(err) { });
                   console.log("writing 2:" + $writepath);
-                  //alert("saved " + $writepath);
+                  alert("saved " + $writepath);
                   }
                 });
               });
